@@ -26,7 +26,7 @@ export class DetalleSalaPage {
   }
 
   ionViewDidLoad() {
-    this.nombreSala=this.navParams.data.nombre;
+    this.nombreSala=this.navParams.data;
     this._salasService.getDetalleSalas(this.nombreSala).then(data =>{
       this.sala=data;
     });
