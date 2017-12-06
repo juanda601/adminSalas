@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Lista de salas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>       
+    <ion-card *ngFor="let sala of salasList; let i=index">    
+    <ion-item color="dark" (click)="verDetalle(sala.nombre)">
+        <h2 style="color:white" id="title">{{sala.nombre}}</h2>
+    </ion-item>
+      <ion-list>
+          <ion-itemy>
+            <p>Ubicacion: <span>{{sala.ubicacion}}</span></p>
+            <p>Estado: <span>{{sala.estado}}</span></p>
+            <button ion-button color="dark" item-end (click)="verDetalle(sala.nombre)">Ver</button>
+            <button ion-button color="danger" (click)="eliminarSala(sala.nombre)" item-end>
+              <ion-icon class="delete-icon" name="trash"></ion-icon>
+            </button>
+          </ion-item>       
+      </ion-list>
+    </ion-card>
+    <ion-fab right bottom>
+        <button ion-fab color="dark" (click)="agregar()">
+            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+        </button>
+      </ion-fab>
+</ion-content>
